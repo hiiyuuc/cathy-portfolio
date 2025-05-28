@@ -4,20 +4,57 @@
   <meta charset="UTF-8" />
   <title>Cathy Portfolio</title>
   <style>
-  html, body {
-    margin: 0; padding: 0; height: 100%;
-    overflow: hidden;
-  }
-  iframe {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    border: none;
-  }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      display: none;
+    }
+    h1 {
+      width: 100%;
+      text-align: center;
+    }
+
+    span {
+      font-family: system-ui, Arial, Helvetica, sans-serif;
+      font-size: 3em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background-image: linear-gradient(gold, gold);
+      background-size: 100% 10px;
+      background-repeat: no-repeat;
+      background-position: 100% 0%;
+      transition: background-size .7s, background-position .5s ease-in-out;
+
+      background-size: 100% 100%;
+      background-position: 0% 100%;
+      transition: background-position .7s, background-size .5s ease-in-out;
+      padding: 10px;
+    }
+
+    #portfolioTitle a {
+      text-decoration: none;
+      color: black;
+    }
   </style>
 </head>
 <body>
+  <h1>
+    <span id="portfolioTitle">
+        <a href="http://ec2-13-211-159-91.ap-southeast-2.compute.amazonaws.com/">Cathy Portfolio</a>  
+    </span>
+  </h1>
+
   <iframe id="portfolioIframe" src="http://ec2-13-211-159-91.ap-southeast-2.compute.amazonaws.com/"></iframe>
 
   <script>
@@ -27,6 +64,8 @@
 
     iframe.onload = () => {
       loaded = true;
+      document.getElementById('portfolioTitle').style.display = "none";
+      document.getElementById('portfolioIframe').style.display = "block";
     };
 
     setTimeout(() => {
