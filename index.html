@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cathy Portfolio</title>
+  <style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    overflow: hidden;
+  }
+  iframe {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+  }
+  </style>
+</head>
+<body>
+  <iframe id="portfolioIframe" src="http://ec2-13-211-159-91.ap-southeast-2.compute.amazonaws.com/"></iframe>
+
+  <script>
+    const iframe = document.getElementById('portfolioIframe');
+    const targetUrl = iframe.src;
+    let loaded = false;
+
+    iframe.onload = () => {
+      loaded = true;
+    };
+
+    setTimeout(() => {
+      if (!loaded) {
+        window.location.href = targetUrl;
+      }
+    }, 3000);
+  </script>
+</body>
+</html>
